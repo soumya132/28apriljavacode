@@ -14,7 +14,7 @@ pipeline {
         stage("build") {
             steps {
                 // Get some code from a GitHub repository
-               def mvnhome = tool name: 'apache-maven-3.6.1', type: 'maven'
+               def mvnhome = "tool name: 'apache-maven-3.6.1', type: 'maven'"
                 sh "${mvnhome}/bin/mvn package"
 
               
