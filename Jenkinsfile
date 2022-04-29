@@ -1,7 +1,10 @@
 pipeline 
 {
     agent any
-    
+    tools
+    {
+        jdk 'openjdk11'
+    }
   
    stages 
     {
