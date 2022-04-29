@@ -14,7 +14,7 @@ pipeline {
         stage("build") {
             steps {
                 // Get some code from a GitHub repository
-                sh "mvn clean install"
+                sh 'mvn package'
 
               
             }
