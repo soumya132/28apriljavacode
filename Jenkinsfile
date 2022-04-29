@@ -1,10 +1,13 @@
-pipeline {
+pipeline 
+{
     agent any
     
   
-   stages {
+   stages 
+    {
        
-        stage("git") {
+        stage("git")
+       {
             steps {
                 // Get some code from a GitHub repository
                 git branch: 'main' , credentialsId:'git_credentials', url: 'https://github.com/soumya132/28apriljavacode.git'
@@ -12,8 +15,10 @@ pipeline {
               
             }
         }
-        stage("build") {
-            steps {
+        stage("build")
+       {
+            steps 
+           {
                 // Get some code from a GitHub repository
                //def mvnhome = tool name: 'apache-maven-3.6.1', type: 'maven'
                 bat "mvn package"
@@ -21,18 +26,22 @@ pipeline {
               
             }
         }
-       stage('SonarQube analysis') {
-           steps{
+       stage('SonarQube analysis')
+       {
+           steps
+           {
     //withSonarQubeEnv(credentialsId: 'roshantoken', installationName: 'sonarqube') { // You can override the credential to be used
      // bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-               withSonarQubeEnv('My SonarQube Server') {
+               withSonarQubeEnv('My SonarQube Server')
+               {
                     // Optionally use a Maven environment you've configured already
-                    withMaven(maven:'apache-maven-3.6.1') {
+                    withMaven(maven:'apache-maven-3.6.1')
+                   {
                         sh 'mvn clean package sonar:sonar'
                     }
                 }
-    }
+    
            }
-  }
+  
     }
 }
