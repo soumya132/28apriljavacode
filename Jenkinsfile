@@ -32,7 +32,7 @@ pipeline
            {
     //withSonarQubeEnv(credentialsId: 'roshantoken', installationName: 'sonarqube') { // You can override the credential to be used
      // bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-               withSonarQubeEnv('My SonarQube Server')
+               withSonarQubeEnv('sonarqube')
                {
                     // Optionally use a Maven environment you've configured already
                     withMaven(maven:'apache-maven-3.6.1')
