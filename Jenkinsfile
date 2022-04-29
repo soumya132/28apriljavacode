@@ -32,7 +32,7 @@ pipeline
            {
              withSonarQubeEnv(credentialsId: 'mishratoken', installationName: 'sonarqube') 
                { 
-                    bat 'mvn sonar:sonar'
+                    bat 'mvn sonar:sonar -e'
                }
     
            }
