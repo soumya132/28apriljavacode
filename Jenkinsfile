@@ -37,7 +37,7 @@ pipeline
                     // Optionally use a Maven environment you've configured already
                     withMaven(maven:'apache-maven-3.6.1')
                    {
-                        sh 'mvn clean package sonar:sonar'
+                        bat 'mvn clean package sonar:sonar'
                     }
                 }
     
