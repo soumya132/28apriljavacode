@@ -1,7 +1,9 @@
-node
-{
-
-  stage("git") {
+pipeline {
+    agent any
+    
+  
+   stages {
+        stage("git") {
             steps {
                 // Get some code from a GitHub repository
                 git credentialsId:'git_credentials', url: 'https://github.com/soumya132/28apriljavacode.git'
@@ -9,8 +11,13 @@ node
               
             }
         }
-  stage('compile and package')
-  {
-    sh 'mvn package'
-  }
+        stage("build") {
+            steps {
+                // Get some code from a GitHub repository
+                sh "mvn clean install"
+
+              
+            }
+        }
+    }
 }
