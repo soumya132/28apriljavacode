@@ -7,7 +7,7 @@ pipeline {
         stage("git") {
             steps {
                 // Get some code from a GitHub repository
-                git credentialsId:'git_credentials', url: 'https://github.com/soumya132/28apriljavacode.git'
+                git branch: 'main' credentialsId:'git_credentials', url: 'https://github.com/soumya132/28apriljavacode.git'
 
               
             }
